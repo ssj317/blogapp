@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>BLOG</title>
+</head>
+<body class="bg-dark text-white">
+    <%- include('./partials/nav') %>
+
+    <div >
+
+        <form method="post" enctype="multipart/form-data" action="/user/addblog">
+
+            <div class="mb-3 mt-4">
+                <label for="CoverImage" class="form-label fw-bold text-3xl">Cover Image</label>
+                <input type="file" class="form-control" name="CoverImage" id="upload"  aria-describedby="emailHelp">
+            </div>
+
+
+            <div class="mb-3 mt-4">
+              <label for="exampleInputEmail1" class="form-label fw-bold text-3xl">TITLE</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" name="title" aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-3">
+                <label for="floatingTextarea2" class="form-label fw-bold fs-4">CONTENT</label>
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px; resize: none;" name="content"></textarea>
+            </div>
+
+            <div class="mb-3">
+              <button class="btn btn-primary" type="submit">SUBMIT</button>
+            </div>
+            
+
+            
+
+            
+
+            
+        </form>
+    
+
+    </div>
+
+   
+
+    <%- include('./partials/scripts') %>
+</body>
+</html>
+

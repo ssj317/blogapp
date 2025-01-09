@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('./partials/nav') %>
+
+    <div class="container mt-4">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% if (user) { %> 
+        <% if (blogs && blogs.length > 0) { %> 
+        <% blogs.forEach(function(blog) { %>
+    
+        <div class="col">
+          <div
+            class="card h-100"
+            style="
+              border-radius: 8px;
+              overflow: hidden;
+              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3),
+                0 1px 3px rgba(0, 0, 0, 0.1);
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            "
+          >
+            <img
+              src="/upload/<%= blog.coverimage.replace('uploads/', '') %>"
+              class="card-img-top"
+              alt="..."
+              style="
+                height: 200px;
+                width: 100%;
+                object-fit: cover;
+                object-position: top;
+              "
+            />
+    
+            <div class="card-body">
+              <h5 class="card-title"><%= blog.title %></h5>
+              <a href="/user/blog/<%= blog._id %>" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <% }); %> 
+        <% } else { %>
+        <p class="text-center">No blogs available. Create one!</p>
+        <% } %> 
+        <% } else { %>
+        <!-- If user is logged out -->
+        <p class="text-center">Please <a href="/user/signin">login</a> to view blogs.</p>
+        <% } %>
+      </div>
+    </div>
+
+    <%- include('./partials/scripts') %>
+  </body>
+</html>

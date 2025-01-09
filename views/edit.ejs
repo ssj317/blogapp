@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Edit Comment</title>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+
+    <div class="container mt-4">
+       
+        <form action="/user/edit/<%= comment._id %>" method="post">
+            <div class="mb-3">
+                <label for="editpart" class="form-label">EDIT</label>
+                <textarea name="editpart" id="editpart" class="form-control" rows="4" cols="50"><%= comment.content %></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
+    <%- include('./partials/scripts') %>
+</body>
+</html>

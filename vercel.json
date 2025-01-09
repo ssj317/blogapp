@@ -1,0 +1,28 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "app.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/user/(.*)",
+        "dest": "/routes/user.js"
+      },
+      {
+        "src": "/public/(.*)",
+        "dest": "/public/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/app.js"
+      }
+    ],
+    "env": {
+      "MONGO_URL": "your_mongodb_connection_string",
+      "PORT": "8000"
+    }
+  }
+  

@@ -1,9 +1,9 @@
 {
   "name": "blogapp",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +12,7 @@
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.7",
     "crypto": "^1.0.1",
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",

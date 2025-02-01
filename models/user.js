@@ -20,7 +20,7 @@ const userschema=mongoose.Schema({
 
     profileImageURL:{
         type:String,
-        default:'/images/default.jpeg',
+        default:'images/default.jpeg',
     },
     role:{
         type:String,

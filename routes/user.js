@@ -152,6 +152,8 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+
+
 router.get("/new-blog", isloggedin, (req, res) => {
   res.render("blog", { user: req.user });
 });

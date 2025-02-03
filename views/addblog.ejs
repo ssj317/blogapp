@@ -3,33 +3,6 @@
   <head>
     <%- include('./partials/head') %>
     <title>BLOG PAGE</title>
-    <style>
-      .comment-container {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-left: 20px;
-      }
-
-      .comment-container img {
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-      }
-
-      .comment-content {
-        background-color: #f8f9fa;
-        padding: 10px;
-        border-radius: 5px;
-        margin-left: 60px;
-        max-width: 600px;
-        word-wrap: break-word;
-      }
-
-      .comment-actions {
-        margin-left: auto;
-      }
-    </style>
   </head>
   <body>
     <%- include('./partials/nav') %>
@@ -44,9 +17,9 @@
     </div>
 
     <!-- Blog Creator Details -->
-    <div class="comment-container mt-4">
-        <img src="/<%= newblog.createdBy.profileImageURL || 'default-avatar.png' %>" alt="Profile Picture">
-        <strong><%= newblog.createdBy.fullName %></strong>
+    <div>
+        <img src="/<%= newblog.createdBy.profileImageURL || 'default-avatar.png' %>" width="50px" height="50px" class="rounded-circle ms-5" alt="Profile Picture">
+        <%= newblog.createdBy.fullName %>
     </div>
 
     <!-- Comments Section -->
@@ -64,23 +37,30 @@
       </form>
     </div>
 
-    <div class="mt-2">
+    <div class="justify-content-start align-items-center ms-0 mt-2">
       <% comments.forEach(function(comment) { %>
-        <div class="comment-container mt-4">
-          <img src="/<%= comment.createdBy.profileImageURL || 'default-avatar.png' %>" alt="Profile Pic">
-          <strong><%= comment.createdBy.fullName %>:</strong>
-        </div>
-        <div class="comment-content">
-          <p><%= comment.content %></p>
-          <% if (user && user.userid === comment.createdBy._id.toString()) { %>
-            <div class="comment-actions">
+        <div class="main mt-4 ms-4">
+        
+          <img src="/<%= comment.createdBy.profileImageURL || 'default-avatar.png' %>" 
+               class="rounded-circle ms-5" 
+               alt="Profile Pic" 
+               width="50" 
+               height="50">
+
+          <%= comment.createdBy.fullName %>:
+
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <p class="ms-5 mt-2" style="margin-right: 10px;"><%= comment.content %></p>
+            
+            <% if (user && user.userid === comment.createdBy._id.toString()) { %>
               <a href="/user/edit/<%= comment._id %>" style="text-decoration: none; color: #007BFF;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Edit</a>
-            </div>
-          <% } %>
+            <% } %>
+          </div>
+          
         </div>
       <% }); %>
     </div>
 
     <%- include('./partials/scripts') %>
   </body>
-</html>
+</html> 

@@ -170,6 +170,7 @@ router.get('/profilepic',(req,res)=>{
 })
 
 router.post('/profilepic',isloggedin,uploadc.single('image'),async (req,res)=>{
+  
   if(!req.file){
     return res.status(400).send('No file uploaded.');
   }
@@ -216,6 +217,7 @@ router.post('/edit/:comm_id', async (req, res) => {
 
 
 router.get('/blog/:id',isloggedin,async(req,res)=>{
+  
   const nblog= await blog.findById(req.params.id).populate("createdBy");
 
   const comments = await comment.find({blogId:req.params.id}).populate("createdBy");
